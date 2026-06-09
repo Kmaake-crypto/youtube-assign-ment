@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <!-- 1. HEADER / NAVIGATION BAR -->
+    <nav class="nav-container">
+        <div class="nav-left">
+            <button class="menu-btn">
+                <img src="assets/menu picture 2.png" alt="Menu Icon" class="menu-icon">
+            </button>
+            <div class="logo-container">
+                <img src="assets/youtube logo.png" alt="YouTube Logo" class="youtube-logo-img">
+            </div>
+        </div>
+
+        <div class="nav-middle">
+            <form class="search-container">
+                <input type="text" class="search-input" id="videoSearch" placeholder="Search videos...">
+                <button type="submit" class="search-btn">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z"></path></svg>
+                </button>
+            </form>
+            <button class="mic-btn">
+                <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12,3c-1.66,0-3,1.34-3,3v6c0,1.66,1.34,3,3,3s3-1.34,3-3V6C15,4.34,13.66,3,12,3z M18,12h-1c0,2.76-2.24,5-5,5s-5-2.24-5-5H6c0,3.04,2.25,5.54,5.25,5.91V21h1.5v-3.09C15.75,17.54,18,15.04,18,12z"></path></svg>
+            </button>
+        </div>
+
+        <div class="nav-right">
+            <!-- Dark Mode Toggle Button -->
+            <button class="dark-mode-btn" id="darkModeToggle" title="Toggle Dark Mode">
+                <svg viewBox="0 0 24 24" width="24" height="24" class="sun-icon"><path d="M12,3v1m0,16v1m9-9h-1m-16,0h-1m15.364,1.636l-0.707,0.707m-12.728,0l-0.707,-0.707m0,12.728l0.707,0.707m12.728,0l0.707,-0.707M12,5a7,7 0 1,0 14,0a7,7 0 1,0 -14,0" stroke="#0f0f0f" stroke-width="1.5" fill="none"/></svg>
+                <svg viewBox="0 0 24 24" width="24" height="24" class="moon-icon" style="display:none;"><path d="M21,12.79A9,9 0 1,1 11.21,3 7,7 0 0,0 21,12.79Z" fill="#0f0f0f"/></svg>
+            </button>
+
+            <button class="create-btn">
+                <svg viewBox="0 0 24 24" width="22" height="22" style="margin-right: 6px;"><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"></path></svg>
+                <span>Create</span>
+            </button>
+            
+            <div class="notification-container">
+                <button class="icon-btn">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M10,21h4c0,1.1-0.9,2-2,2S10,22.1,10,21z M21,19v1H3v-1l2-2v-6c0-3.07,1.63-5.64,4.5-6.32V4c0-0.83,0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5v0.68C15.37,5.36,17,7.92,17,11v6L21,19z"></path></svg>
+                </button>
+                <span class="badge">9+</span>
+            </div>
+
+            
+            <img src="ASSETS/koketso.jpeg" alt="User Profile" class="profile-avatar">
+        </div>
+    </nav>
+
+    <!-- MAIN BODY CONTENT AREA -->
+    <div class="main-layout">
+        
+        <aside class="sidebar">
+            <a href="#" class="sidebar-item active">
+                <img src="assets/images.png" alt="Home Icon" class="sidebar-icon">
+                <span>Home</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="assets/download.png" alt="Shorts Icon" class="sidebar-icon">
+                <span>Shorts</span>
+            </a>
+            <a href="#" class="sidebar-item">
+                <img src="assets/subscription.png" alt="Subscriptions Icon" class="sidebar-icon">
+                <span>Subscriptions</span>
+            </a>
+            <a href="#" class="sidebar-item" id="youToggle">
+                <img src="assets/profile.png" alt="You Icon" class="sidebar-icon">
+                <span>You</span>
+                <span class="dropdown-arrow">›</span>
+            </a>
+            
+            <div class="you-submenu" id="youSubmenu">
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"></path></svg>
+                    <span>Your channel</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,13V7h-2v6H6v2h4v4h2v-4h4v-2H12z"></path></svg>
+                    <span>History</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,5v10h-8V5H19z M11,5H5v14h6V5z"></path></svg>
+                    <span>Playlists</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8s8,3.58,8,8S16.42,20,12,20z M12.5,7H11v6l5.25,3.15l0.75-1.23l-4.5-2.67V7z"></path></svg>
+                    <span>Watch Later</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M18,1l-7,7l7,7V1z M11,1H1v18h10V1z M21,1h-10v18h10V1z"></path></svg>
+                    <span>Liked videos</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"></path></svg>
+                    <span>Your videos</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19,9h-4V3H9v6H5l7,7L19,9z M5,18h14v2H5z"></path></svg>
+                    <span>Downloads</span>
+                </a>
+            </div>
+
+            <footer class="sidebar-footer">
+                <p>&copy; 2026 YouTube Clone</p>
+                <div class="footer-links">
+                    <a href="#about">About</a> • 
+                    <a href="#terms">Terms</a> • 
+                    <a href="#privacy">Privacy</a>
+                </div>
+            </footer>
+        </aside>
+            
+            <!-- You Submenu -->
+            <div class="you-submenu" id="youSubmenu">
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z"></path></svg>
+                    <span>Your channel</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,13V7h-2v6H6v2h4v4h2v-4h4v-2H12z"></path></svg>
+                    <span>History</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,5v10h-8V5H19z M11,5H5v14h6V5z"></path></svg>
+                    <span>Playlists</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.42,0-8-3.58-8-8s3.58-8,8-8s8,3.58,8,8S16.42,20,12,20z M12.5,7H11v6l5.25,3.15l0.75-1.23l-4.5-2.67V7z"></path></svg>
+                    <span>Watch Later</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M18,1l-7,7l7,7V1z M11,1H1v18h10V1z M21,1h-10v18h10V1z"></path></svg>
+                    <span>Liked videos</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19,13h-6v6h-2v-6H5v-2h6V5h2v6h6V13z"></path></svg>
+                    <span>Your videos</span>
+                </a>
+                <a href="#" class="submenu-item">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M19,9h-4V3H9v6H5l7,7L19,9z M5,18h14v2H5z"></path></svg>
+                    <span>Downloads</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- 3. DYNAMIC VIDEO GRID CONTAINER -->
+        <main class="content-wrapper">
+            <div class="video-grid">
+
+  <a href="https://youtu.be/dbNPPwO6UHs" target="_blank" class="video-card">
+    <div class="thumbnail-container">
+      <img src="https://i.ytimg.com/vi/dbNPPwO6UHs/maxresdefault.jpg" alt="Percy Tau Striker" class="thumbnail">
+      <span class="video-time">05:32</span>
+    </div>
+    <div class="video-details">
+      <img src="assets/SOCCER BALL.png" alt="Diski Galore" class="channel-profile">
+      <div class="video-text">
+        <h3 class="video-title">PERCY TAU? STRIKER!!</h3>
+        <p class="channel-name">DISKI GALORE ™</p>
+        <p class="video-stats">6.2K views • 2 days ago</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://youtu.be/reyynfmvIjs" target="_blank" class="video-card">
+    <div class="thumbnail-container">
+      <img src="https://i.ytimg.com/vi/reyynfmvIjs/maxresdefault.jpg" alt="Orlando Pirates BucsCamp" class="thumbnail">
+      <span class="video-time">59:45</span>
+    </div>
+    <div class="video-details">
+      <img src="assets/orlando pirates.png" alt="PiratesTV" class="channel-profile">
+      <div class="video-text">
+        <h3 class="video-title">Orlando Pirates | PART 1 | BucsCamp: We Fight Until the End</h3>
+        <p class="channel-name">PiratesTV</p>
+        <p class="video-stats">200K views • 2 days ago</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://youtu.be/D2J_VFRz-jA" target="_blank" class="video-card">
+    <div class="thumbnail-container">
+      <img src="https://i.ytimg.com/vi/D2J_VFRz-jA/maxresdefault.jpg" alt="Khaya Mthethwa Outpouring" class="thumbnail">
+      <span class="video-time">09:21</span>
+    </div>
+    <div class="video-details">
+      <img src="assets/gospel.png" alt="Khaya Mthethwa" class="channel-profile">
+      <div class="video-text">
+        <h3 class="video-title">Khaya Mthethwa Ft Ntokozo Mbambo | Outpouring | Official Live Recording</h3>
+        <p class="channel-name">Khaya Mthethwa</p>
+        <p class="video-stats">648K views • 1 year ago</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://youtu.be/0KRZzp6jdmA" target="_blank" class="video-card">
+    <div class="thumbnail-container">
+      <img src="https://i.ytimg.com/vi/0KRZzp6jdmA/maxresdefault.jpg" alt="On the Rise: From South Africa to Chicago Fire" class="thumbnail">
+      <span class="video-time">23:22</span>
+    </div>
+    <div class="video-details">
+      <img src="assets/chicago fire.png" alt="Chicago Fire FC" class="channel-profile">
+      <div class="video-text">
+        <h3 class="video-title">On the Rise: From South Africa to Chicago Fire</h3>
+        <p class="channel-name">Chicago Fire FC</p>
+        <p class="video-stats">76K views • 4 days ago</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://youtu.be/SWCp2sb7gzY" target="_blank" class="video-card">
+    <div class="thumbnail-container">
+      <img src="https://i.ytimg.com/vi/SWCp2sb7gzY/maxresdefault.jpg" alt="Bafana Bafana vs Jamaica" class="thumbnail">
+      <span class="video-time">09:16</span>
+    </div>
+    <div class="video-details">
+      <img src="assets/SOCCER BALL.png" alt="Diski Galore" class="channel-profile">
+      <div class="video-text">
+        <h3 class="video-title">BAFANA BAFANA WIN/DRAW VS JAMAICA? APPOLLIS OR FOSTER</h3>
+        <p class="channel-name">DISKI GALORE ™</p>
+        <p class="video-stats">12K views • 2 days ago</p>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://youtu.be/cO1tfBAoTEk" target="_blank" class="video-card">
+    <div class="thumbnail-container">
+      <img src="https://i.ytimg.com/vi/cO1tfBAoTEk/maxresdefault.jpg" alt="Sindi Ntombela Cape Town" class="thumbnail">
+      <span class="video-time">06:24</span>
+    </div>
+    <div class="video-details">
+      <img src="assets/elohim.png" alt="Elohim Praise" class="channel-profile">
+      <div class="video-text">
+        <h3 class="video-title">Sindi Ntombela in Cape Town - Akudingwa nasibani || Eternal Glory Church</h3>
+        <p class="channel-name">Elohim Praise</p>
+        <p class="video-stats">79 views • 2 days ago</p>
+      </div>
+    </div>
+  </a>
+
+</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Link to JavaScript file for custom features -->
+    <script src="app.js"></script>
+</body>
+</html>
