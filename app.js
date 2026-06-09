@@ -1,4 +1,29 @@
 // =====================================================
+// MOBILE SIDEBAR TOGGLE
+// =====================================================
+const menuBtn = document.querySelector('.menu-btn');
+
+menuBtn.addEventListener('click', () => {
+    document.body.classList.toggle('sidebar-open');
+});
+
+document.addEventListener('click', (e) => {
+    if (
+        document.body.classList.contains('sidebar-open') &&
+        !e.target.closest('.sidebar') &&
+        !e.target.closest('.menu-btn')
+    ) {
+        document.body.classList.remove('sidebar-open');
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.body.classList.remove('sidebar-open');
+    }
+});
+
+// =====================================================
 // YOU SUBMENU TOGGLE WITH CURSOR FEEDBACK
 // =====================================================
 // This handles the expandable/collapsible "You" menu in sidebar

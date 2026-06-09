@@ -233,6 +233,7 @@ body {
     border-right: 1px solid #e5e5e5;
     overflow-y: auto;
     gap: 8px;
+    transition: width 0.2s ease, transform 0.25s ease, left 0.25s ease;
 }
 
 .sidebar-item {
@@ -434,43 +435,234 @@ video.thumbnail {
 }
 
 /* ==========================================
-   5. RESPONSIVE MEDIA QUERIES (Mobile Optimization)
+   5. RESPONSIVE MEDIA QUERIES
    ========================================== */
 
-/* Medium Devices (Tablets, smaller laptop profiles) */
-@media (max-width: 1200px) {
-    /* Sidebar remains non-responsive and keeps full width */
+/* Large laptops / smaller desktops */
+@media (max-width: 1400px) {
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 32px 16px;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+    }
 }
 
-/* Small Devices (Mobile Phones / iPhones) */
-@media (max-width: 768px) {
-    /* Sidebar remains visible and non-responsive */
-    
+/* Tablets — collapsed icon sidebar */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 72px;
+        padding: 4px 0;
+        align-items: center;
+    }
+
+    .sidebar-item {
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        width: 64px;
+        padding: 16px 0;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .sidebar-item span:not(.dropdown-arrow) {
+        display: none;
+    }
+
+    .dropdown-arrow,
+    .you-submenu,
+    .sidebar-footer {
+        display: none !important;
+    }
+
     .nav-middle {
-        display: none; /* Hide standard center input search bar stack */
+        max-width: 480px;
     }
-    
+
+    .video-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+}
+
+/* Small tablets */
+@media (max-width: 992px) {
+    .nav-middle .mic-btn {
+        display: none;
+    }
+
+    .nav-middle {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
     .create-btn span {
-        display: none; /* Strip text string out of pill shape layout */
+        display: none;
     }
-    
+
     .create-btn {
         padding: 8px;
         border-radius: 50%;
         background: none;
     }
 
-    .content-wrapper {
-        padding: 12px; /* Tighten up spacing gutters */
+    .create-btn svg {
+        margin-right: 0 !important;
     }
 
     .video-grid {
-        grid-template-columns: 1fr; /* Stack video items into a singular grid view column */
-        gap: 24px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 12px;
+    }
+
+    .content-wrapper {
+        padding: 16px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+    body.sidebar-open {
+        overflow: hidden;
+    }
+
+    body.sidebar-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 90;
+    }
+
+    .nav-container {
+        padding: 0 12px;
+    }
+
+    .nav-left {
+        gap: 8px;
+    }
+
+    .nav-middle {
+        display: none;
+    }
+
+    .nav-right {
+        gap: 4px;
+    }
+
+    .youtube-logo-img {
+        height: 20px;
+    }
+
+    .main-layout {
+        height: auto;
+        min-height: calc(100vh - 56px);
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 240px;
+        height: calc(100vh - 56px);
+        z-index: 95;
+        transform: translateX(-100%);
+        padding: 12px;
+        box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .sidebar-item {
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .sidebar-item span:not(.dropdown-arrow) {
+        display: inline;
+    }
+
+    .dropdown-arrow {
+        display: inline;
+    }
+
+    .you-submenu.active {
+        display: flex;
+    }
+
+    .sidebar-footer {
+        display: block !important;
+    }
+
+    .content-wrapper {
+        padding: 0;
+        width: 100%;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        gap: 24px 0;
     }
 
     .thumbnail-container {
-        border-radius: 0px; /* Zero out custom thumbnail rounded paths on small phones */
+        border-radius: 0;
+    }
+
+    .video-details {
+        padding: 0 12px;
+    }
+
+    .badge {
+        font-size: 9px;
+        padding: 0 3px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 8px;
+    }
+
+    .nav-right .notification-container {
+        display: none;
+    }
+
+    .profile-avatar {
+        width: 28px;
+        height: 28px;
+    }
+
+    .menu-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .video-title {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .channel-name,
+    .video-stats,
+    .video-meta {
+        font-size: 11px;
+    }
+
+    .video-grid {
+        gap: 20px 0;
     }
 }
 /* ==========================================================================
